@@ -1,3 +1,10 @@
+/*Project:  Lab2
+ * Class: UniqueWords.java
+ * Author: Shafin Ahmed
+ * Date: 2/27/2021
+ * This programs find the number of unique words listed in the arraylist.
+ */
+
 import java.util.ArrayList;
 
 public class UniqueWords
@@ -11,11 +18,20 @@ public class UniqueWords
    {
 	  int count = 0;
 	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
+      for (int i = 0; i < list.size(); i++) {
+    	  boolean unique=true;
+    	  
+    	  for (int j = 0; j < i; j++)   	  
 		 {
+    		  if(list.get(i)==list.get(j)) {
+    			  unique=false;
+    			  break;
+    		  }
 			
 		 }
+    	  if(unique) {
+    		  count++;
+    	  }
       }
 	  return count;
    }
@@ -33,5 +49,6 @@ public class UniqueWords
    
 	  int unique = countUnique(words);
       System.out.println(words + " has " + unique + " unique words");
+      
    }
 }
